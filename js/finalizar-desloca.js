@@ -42,6 +42,49 @@ window.onload = function () {
                 }
             }
         });
+
+        function inserirCoordMaps() {
+
+            const divMap = document.querySelectorAll('.div-map')
+            let latDado = document.querySelectorAll('.lat')
+            let longDado = document.querySelectorAll('.long')
+
+            divMap.forEach((div, ind) => {
+
+                let lat = parseFloat(latDado[ind].textContent)
+                let long = parseFloat(longDado[ind].textContent)
+
+                inserirCoordDiv(ind, lat, long)
+                
+            })
+            
+
+            let map;
+            let marker;
+
+            async function inserirCoordDiv(ind, lat, long) {
+                const position = {lat: lat, lng: long}
+
+                const { Map } = await google.maps.importLibrary("maps")
+                const { Marker } = await google.maps.importLibrary("marker")
+
+                map = new Map(document.querySelectorAll('.div-map')[ind], {
+                    zoom: 14,
+                    center: position,
+                    mapId: "DEMO_MAP_ID"
+                })
+
+                marker = new Marker( {
+                    map: map,
+                    position: position,
+                    title: 'Localização inicial'
+                })
+
+            }
+
+        }
+        inserirCoordMaps()
+
     }
     abrirDetalhe()
 
@@ -81,7 +124,6 @@ window.onload = function () {
 
     acaoVisual.forEach((btn, ind) => {
         btn.addEventListener('click', () => {
-            console.log(ind + '-> indice acao visual')
             if (btn.classList[1] == 'finalizar') {
                 openAcao()
             } 
@@ -112,7 +154,9 @@ window.onload = function () {
         const dadoCity = document.querySelectorAll('.dado-city')
         const dadoDate = document.querySelectorAll('.dado-date')
         const dadoPrevisto = document.querySelectorAll('.dado-previsto')
-        const dadoCoord = document.querySelectorAll('.dado-coord')
+        const dadoLat = document.querySelectorAll('.lat')
+        const dadoLong = document.querySelectorAll('.long')
+        const dadoMaps = document.querySelectorAll('.dado-map')
         const dadoObs = document.querySelectorAll('.dado-obs')
 
         document.querySelector('#resposta-name').innerHTML = dadoName[ind].textContent
@@ -120,7 +164,33 @@ window.onload = function () {
         document.querySelector('#resposta-cdc').innerHTML = dadoCdc[ind].textContent
         document.querySelector('#resposta-data').innerHTML = dadoDate[ind].textContent
         document.querySelector('#resposta-previsto').innerHTML = dadoPrevisto[ind].textContent
-        document.querySelector('#resposta-coord').innerHTML = dadoCoord[ind].textContent
+
+        let lat = parseFloat(dadoLat[ind].textContent)
+        let long = parseFloat(dadoLong[ind].textContent)
+
+        document.querySelector('#resposta-coord').innerHTML = lat + ',' + long
+
+        mapVisual(lat, long)
+
+        async function mapVisual(lat, long) {
+            const position = {lat: lat, lng: long}
+
+            const { Map } = await google.maps.importLibrary("maps")
+            const { Marker } = await google.maps.importLibrary("marker")
+
+            map = new Map(document.querySelector('#resposta-map'), {
+                zoom: 16,
+                center: position,
+                mapId: "DEMO_MAP_ID",
+            })
+
+            marker = new Marker({
+                map: map,
+                position: position,
+                title: 'Marcador'
+            })
+
+        }
         document.querySelector('#resposta-obs').innerHTML = dadoObs[ind].textContent
         
     }
@@ -128,7 +198,6 @@ window.onload = function () {
 
     function openVisualizar() {
         const boxVisual = document.querySelector('.box-acao-visualizar')
-        console.log('chamando')
         if (boxVisual.classList[1] == 'box-acao-visualizar-exit' || boxVisual.className == 'box-acao-visualizar') {
             boxVisual.classList.add('box-acao-visualizar-open')
             boxVisual.classList.remove('box-acao-visualizar-exit')
@@ -147,6 +216,8 @@ window.onload = function () {
         if (boxFinal.classList[1] == 'box-acao-final-exit' || boxFinal.className == 'box-acao-final') {
             boxFinal.classList.add('box-acao-final-open')
             boxFinal.classList.remove('box-acao-final-exit')
+
+            ultiLocal()
         } else {
             boxFinal.classList.remove('box-acao-final-open')
             boxFinal.classList.add('box-acao-final-exit')
@@ -163,37 +234,39 @@ window.onload = function () {
     function ultiLocal() {
         if ('geolocation' in navigator) {
 
-            navigator.geolocation.watchPosition(function (pos) {
+            navigator.geolocation.getCurrentPosition(function (pos) {
                 let lat = pos.coords.latitude
                 let long = pos.coords.longitude
                 document.querySelector('#coord').value = lat.toString() + long.toString()
                 initMap(lat, long)
+                
             })
 
 
         }
+    }
 
-        let map;
-        let marker;
+    let map;
+    let marker;
 
-        async function initMap(lat, long) {
-            const position = { lat: lat, lng: long }
+    async function initMap(lat, long) {
+        const position = { lat: lat, lng: long }
+        
 
-            const { Map } = await google.maps.importLibrary("maps")
-            const { Marker } = await google.maps.importLibrary("marker")
+        const { Map } = await google.maps.importLibrary("maps")
+        const { Marker } = await google.maps.importLibrary("marker")
 
-            map = new Map(document.querySelector('#map'), {
-                zoom: 16,
-                center: position,
-                mapId: "DEMO_MAP_ID"
-            })
+        map = new Map(document.querySelector('#map'), {
+            zoom: 16,
+            center: position,
+            mapId: "DEMO_MAP_ID"
+        })
 
-            marker = new Marker({
-                map: map,
-                position: position,
-                title: 'Test'
-            })
-        }
+        marker = new Marker({
+            map: map,
+            position: position,
+            title: 'Test'
+        })
     }
 }
 
