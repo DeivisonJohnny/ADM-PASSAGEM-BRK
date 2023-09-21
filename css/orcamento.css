@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+body {
+    background-color: #ddd;
+}
+
+::-webkit-scrollbar{
+    background-color: transparent;
+    width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #2b00ff;
+    border-radius: 5px;
+}
+
+main {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0px 20px 0px;
+}
+
+/* box do form de depositar/adicionar estoque */
+
+.box-deposito {
+    background-color: white;
+    display: none;
+    width: 90%;
+    position: absolute;
+    top: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 1000px 1000px rgba(0, 0, 0, 0.455);
+    
+}
+
+
+.exitDepositar {
+    animation-name: boxDepositarExit;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in-out;
+}
+
+
+.openDepositar {
+    animation-name: boxDepositarOpen;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+}
+
+
+
+@keyframes boxDepositarOpen {
+    0% {
+        top: -180px;
+        display: flex;
+    } 
+
+    80% {
+        top: 80px;
+    }
+
+    100% {
+        top: 50px;
+    }
+}
+
+@keyframes boxDepositarExit{
+    0% {
+        top: 50px;
+        display: flex;
+    }
+
+    100% {
+        top: -180px;
+    }
+}
+
+.box-deposito > form {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+
+.box-deposito > form > div#box-data > #data {
+    font-size: 10px;
+}
+
+.box-deposito > form > div#box-data > ion-icon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.box-deposito > form > div#box-data > ion-icon:hover {
+    background-color: rgb(100, 100, 100);
+    border-radius: 2px;
+    color: white;
+}
+
+
+.box-deposito > form > div#box-data {
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box-deposito > form > div#box-inp{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.box-deposito > form > div#box-inp > label {
+    font-size: 14px;
+}
+
+.box-deposito > form > div#box-inp > label::before {
+    content: ' * ';
+    color: red;
+    font-weight: bold;
+}
+
+.box-deposito > form  input {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid gray;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.315);
+    outline: none;
+}
+
+.box-deposito > form  input:focus {
+    border: 1px solid #2b00ff;
+    box-shadow: 0px 0px 4px 0px #2b00ffac;
+}
+
+
+
+.box-deposito > form  input[type="submit"] {
+    background-color: #2b00ff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0px 0px 4px 0px hsla(0, 0%, 0%, 0.356);
+}
+
+.box-deposito > form  input[type="submit"]:hover {
+    background-color: #0051ff;
+    box-shadow: 0px 0px 6px 0px hsla(0, 0%, 0%, 0.356);
+
+}
+
+main > section.part {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.348);
+    width: 90%;
+}
+
+#box-data-depos > p {
+    font-size: 12.5px;
+    color: black;
+}
+
+.box-depos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 2%;
+    
+}
+
+.box-depos > h2 {
+    font-size: 2.3em;
+}
+
+.box-depos > button {
+    background-color: #2b00ff;
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    padding: 6px 11px;
+    font-size: 13px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.282);
+    cursor: pointer;
+}
+
+#saldo-atual {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+#saldo-atual > p {
+    font-size: 13px;
+}
+
+#saldo-atual > span {
+    padding-left: 10px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+
+#part_1, #part_2 {
+    display: flex;
+    align-items: center;
+}
+#part_1 > div, #part_2 > div {
+    display: flex;
+    width: 100%;
+    text-align: center;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.title > h2 {
+    text-align: center;
+    font-size: 13px;
+
+}
+
+#part_2 > #n-add-passagem {
+    height: 90%;
+}
+
+#part_2 > #n-add-passagem > span {
+    justify-content: center;
+}
+
+#part_1 > div > span, #part_2 > div > span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    gap: 5px;
+}
+
+#part_1 > div > span > h3, #part_2 > div > span > h3{
+    font-size: 10px;
+}
+
+
+#part_1 > div > span > p, #part_2 > div > span > p {
+    font-size: 16px;
+}

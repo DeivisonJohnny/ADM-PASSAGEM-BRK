@@ -1,0 +1,550 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+body {
+    background-color: #DDD;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    gap: 20px;
+}
+
+@keyframes openBoxFinal {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 60px;
+    }
+}
+
+@keyframes exitBoxFinal {
+    0% {
+        top: 60px;
+    }
+
+    100% {
+        top: -100%;
+    }
+}
+
+
+
+
+.box-acao-final {
+    position: absolute;
+    top: -300px;
+    width: 90%;
+    padding: 10px;
+    display: none;
+    gap: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 0px 800px rgba(0, 0, 0, 0.237);
+    flex-direction: column;
+    background-color: white;
+    z-index: 1;
+}
+
+.box-acao-final-exit {
+    display: flex;
+    animation-name: exitBoxFinal;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    top: -300px;
+}
+
+.box-acao-final-open {
+    display: flex;
+    animation-name: openBoxFinal;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    top: 60px;
+
+}
+
+
+.box-acao-final > #box-form-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.box-acao-final > #box-form-visual > h2 {
+    font-size: 18px;
+    text-align: center;
+}
+
+.box-acao-final > #box-form-visual  button, input[type="submit"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3505F9;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.263);
+    cursor: pointer;
+}
+
+.box-acao-final > #box-form-visual  button:hover, input[type="submit"]:hover {
+    background-color: #056bf9;
+    text-shadow: 0px 0px 1px 0px;
+}
+
+
+.box-acao-final > #box-form-visual > form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.box-acao-final > #box-form-visual > form > input[type="text"] {
+    width: 100%;
+    /* padding: 5px; */
+    /* border-radius: 5px; */
+    border: 1px solid gray;
+    outline: none;
+    text-align: center;
+    padding: 1px 0px;
+    cursor: default;
+    /* background-color: red; */
+}
+
+
+.box-acao-final > #map {
+    background-color: blue;
+    width: 100%;
+    height: 400px;
+}
+
+.box-acao-visualizar {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 1000px rgba(0, 0, 0, 0.444);
+    padding: 10px;
+    width: 90%;
+    position: fixed;
+    display: none;
+    top: 50px;
+    z-index: 2;
+}
+
+
+@keyframes openBoxVisual {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 60px;
+    }
+}
+
+@keyframes exitBoxVisual {
+    0% {
+        top: 60px;
+    }
+
+    100% {
+        top: -100%;
+    }
+}
+
+
+.box-acao-visualizar-exit {
+    display: flex;
+    animation-name: exitBoxVisual;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    top: -300px;
+}
+
+.box-acao-visualizar-open {
+    display: flex;
+    animation-name: openBoxVisual;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    top: 60px;
+}
+
+
+
+.icon-close-visualizar {
+    position: absolute;
+    right: 10px;
+}
+
+
+.box-acao-visualizar > .box-info-visualizar {
+    /* background-color: gray; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.box-acao-visualizar > .box-info-visualizar > span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.resposta-visual {
+    font-size: 13px;
+}
+
+.box-acao-visualizar > .box-info-visualizar > span > #map {
+    height: 100px;
+    width: 100%;
+    background-color: blue;
+}
+
+.span-obs-visualizar {
+    flex-direction: column;
+    width: 100%;
+}
+
+.span-obs-visualizar > div {
+    height: 50px;
+    overflow: hidden;
+}
+
+.span-obs-visualizar > div > p {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.span-obs-visualizar > div > p::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+}
+
+.span-obs-visualizar > div > p::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 4px;
+}
+
+
+main>section.box-cdc {
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+    padding: 10px;
+    gap: 50px;
+    background-color: white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.448);
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+main>section>span {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: none;
+    padding: 5px 0px;
+    height: 100%;
+    gap: 5px;
+}
+
+main>section>span>div.inf-essenc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2px;
+}
+
+/* A classe de ser aplicada quando a situação do elemento for incompleta */
+
+.inf-essenc>p>strong.sit-incomp {
+    background-color: rgb(255, 0, 0);
+    opacity: 60%;
+    color: white;
+    padding: 1px 4px;
+    border-radius: 2px;
+}
+
+/* A classe de ser aplicada quando a situação do elemento for Concluida */
+
+.inf-essenc>p>strong.sit-concluida {
+    background-color: rgb(0, 255, 64);
+    opacity: 60%;
+    color: white;
+    padding: 1px 4px;
+    border-radius: 2px;
+}
+
+/* A classe de ser aplicada quando a acao for finalizar*/
+
+
+div.inf-essenc button.acao-final {
+    background-color: rgb(255, 0, 81);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.293);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+
+
+div.inf-essenc button.acao-final:hover {
+    background-color: black;
+    
+}
+
+/* A classe de ser aplicada quando a acao for visualizar*/
+
+
+div.inf-essenc button.visualizar  {
+    background-color: #3505F9;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.293);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+div.inf-essenc button.acao-visual:hover {
+    background-color: black;
+    color: white;
+}
+
+main>section>span>div {
+    width: 100%;
+    display: flex;
+}
+
+/* icone de abrir detalhes */
+
+.icon-detalis {
+    font-size: 20px;
+    cursor: pointer;
+    transform: rotate(0deg);
+    animation-duration: 0.7s;
+    animation-timing-function: ease;
+}
+
+@keyframes rotateIconInit {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes rotateIconOver {
+    0% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* box dos detalhes */
+
+/* classe que inicia */
+
+.details {
+    height: 0px;
+    display: none;
+    flex-direction: column;
+    flex-wrap: none;
+}
+
+/* Quando estiver aberto */
+
+.detailsOpen {
+    overflow: hidden;
+    animation: openDetails 0.7s ease;
+    height: 100%;
+    transition: 4s;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Quando estiver fechado */
+
+.detailsExit {
+    overflow: hidden;
+    animation: exitDetails 0.7s ease;
+    gap: 5px;
+    height: 0px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.detailsOpen > ul > li, .detailsExit > ul > li {
+    display: flex;
+    gap: 5px;
+}
+
+/* BOX do campo de observação */
+
+.box-acao-obs {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.box-acao-obs>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #05c0f9;
+    background-color: transparent;
+    border: none;
+    font-size: 11px;
+    cursor: pointer;
+
+}
+
+.box-obs {
+    display: flex;
+    gap: 2px;
+    flex-direction: column;
+}
+
+.obs-content {
+    overflow: hidden;
+    height: 45px;
+}
+
+.obs-contentExit {
+    overflow: hidden;
+    animation-name: exitObs;
+    animation-duration: 0.2s;
+    animation-timing-function: ease;
+    height: 0px;
+
+}
+
+.obs-contentOpen {
+    overflow: hidden;
+    height: 45px;
+    animation-name: openObs;
+    animation-duration: 0.2s;
+    animation-timing-function: ease;
+}
+
+@keyframes openObs {
+    0% {
+        height: 0px;
+    }
+
+    100% {
+        height: 45px;
+    }
+}
+
+
+@keyframes exitObs {
+    0% {
+        height: 45px;
+    }
+
+    100% {
+        height: 0px;
+    }
+}
+
+.obs-contentExit>p, .obs-contentOpen>p {
+    height: max-content;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 48px;
+}
+
+.obs-content>p::-webkit-scrollbar, .obs-contentOpen>p::-webkit-scrollbar {
+    background-color: transparent;
+    width: 3px;
+}
+
+.obs-content>p::-webkit-scrollbar-thumb, .obs-contentOpen>p::-webkit-scrollbar-thumb{
+    background-color: #3505F9;
+    border-radius: 2px;
+
+}
+
+/* animação de abertura da box de detalhes */
+
+@keyframes openDetails {
+    0% {
+        height: 0px;
+        opacity: 0%;
+        display: flex;
+
+    }
+
+    100% {
+        height: 179px;
+        opacity: 100%;
+    }
+}
+
+/* Animação de fechamento */
+
+@keyframes exitDetails {
+    0% {
+        height: 179px;
+        opacity: 100%;
+    }
+
+    100% {
+        height: 0px;
+        opacity: 0%;
+        display: none;
+    }
+}
+
+/* estilização da lista */
+
+main>section>span>div>ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 5px;
+}
+
+main>section>span p {
+    font-size: 12px;
+}
+
+.map {
+    background-color: blue;
+    height: 100px;
+    width: 100%;
+    /* margin-top: 10px; */
+}

@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+
+}
+
+body {
+    background-color: aquamarine;
+    min-height: 100%;
+    
+
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+header > div {
+    width: 90vw;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    box-shadow: 2px 0px 10px -1px rgba(0, 0, 0, 0.318);
+
+}
+
+header > div > img {
+    height: 60px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+}
+
+section {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    width: 90vw;
+    height: 100%;
+    box-shadow: 2px 0px 10px -1px rgba(0, 0, 0, 0.318);
+    padding: 20px 0px;
+}
+
+section > h1 {
+    text-align: center;
+    font-size: 19px;
+    padding: 20px 0px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    padding: 0px 20px;
+    gap: 20px;
+    width: 100%;
+    height: 75%;
+    
+
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 100%;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+label > p {
+    color: red;
+    font-weight: bold;
+    height: min-content;
+    padding-top: 5px;
+}
+
+form > div > input {
+    padding: 15px 9px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.275);
+    transition: 0.4s;
+}
+
+.inputError {
+    border: 1px solid red;
+    box-shadow: 0px 0px 5px -1px red;
+}
+
+form > div > input:focus {
+    border: 1px solid #3605f9;
+    box-shadow: 0px 0px 5px -1px rgb(54, 5, 249, 275);
+
+}
+
+form > div > input[type="submit"] {
+    background-color: #3605f9;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+/* form > div > input::placeholder {
+    padding-left: 8px;
+} */
+
+form > div > .requiredP {
+    display: none;
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+    padding-left: 3px;
+}
+
+#cadastrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+#cadastrar > a {
+    color: blue;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#cadastrar > a:hover {
+    text-decoration: underline;
+}
+
+#cadastrar > p {
+    color: black;
+    font-size: 12px;
+    
+}

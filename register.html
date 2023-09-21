@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/register.css">
+
+    <!-- link font google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+    
+    <script src="js/register.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+        <div>
+
+            <img src="img/brk-logo.png" alt="">
+        </div>
+
+    </header>
+
+    <main>
+        <section id="login">
+            <h1>Registre-se</h1>
+
+            <form action="">
+                <div>
+
+                    <label for="nome">
+                        <p>*</p>Nome
+                    </label>
+                    <input class="inputs" type="text" name="nome" id="nome" placeholder="Ex: Deivison">
+                    <p class="requiredP">A usuario deve ter ao menos 3 caracteres</p>
+
+                </div>
+                <div>
+
+                    <label for="usuario">
+                        <p>*</p>Usuario
+                    </label>
+                    <input class="inputs" type="text" name="usuario" id="usuario" placeholder="Usuario">
+                    <p class="requiredP">A usuario deve ter ao menos 3 caracteres</p>
+
+                </div>
+                <div>
+
+                    <label for="cidade">
+                        <p>*</p>Cidade
+                    </label>
+                    <input class="inputs" type="text" name="cidade" id="cidade" placeholder="Ex: Barra de Santo Antônio" required minlength="5">
+                    <p class="requiredP">A usuario deve ter ao menos 5 caracteres</p>
+
+                </div>
+                <div>
+                    <label for="password">
+                        <p>*</p>Senha
+                    </label>
+                    <input class="inputs" type="password" name="password" id="password" placeholder="Senha" required minlength="8">
+                    <p class="requiredP">A senha deve ter ao menos 8 caracteres</p>
+
+                </div>
+                <div>
+                    <input type="submit" name="submit" id="submit" value="Cadastre-se">
+                </div>
+
+                <div id="cadastrar">
+                    <a href="index.html">Entrar</a>
+                    <p>By developer Deivison Johnny</p>
+                </div>
+            </form>
+        </section>
+    </main>
+
+</body>
+
+</html>

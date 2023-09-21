@@ -1,0 +1,222 @@
+
+header {
+    padding: 10px 0px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+header>section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+    gap: 45%;
+    background-color: white;
+    width: 90%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.397);
+    padding: 15px 0px;
+}
+
+header>section:hover {
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.286);
+
+}
+
+header>section>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: min-content;
+    width: min-content;
+}
+
+section>div>img {
+    height: 40px;
+}
+
+section>div>ion-icon {
+    position: absolute;
+    font-size: 28px;
+    padding: 0px 2px;
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid rgb(255, 255, 255);
+    transition: 0.4s;
+    transform: rotate(0deg);
+    opacity: 100%;
+}
+
+
+
+@keyframes btnOpenOP {
+    0% {
+        transform: rotate(0deg);
+        opacity: 100%;
+    }
+
+    100% {
+        transform: rotate(90deg);
+        opacity: 10%;
+    }
+}
+
+@keyframes btnOpenEX {
+    0% {
+        transform: rotate(90deg);
+        opacity: 100%;
+    }
+
+    100% {
+        transform: rotate(0deg);
+        opacity: 10%;
+    }
+}
+
+
+
+
+.menuAbrirbtn,
+.menuFecharbtn {
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+.menuFecharbtn {
+    display: none;
+    transform: rotate(90deg);
+}
+
+#triangulo {
+    content: '';
+    position: absolute;
+    right: 26px;
+    border-left: 10px solid rgba(0, 0, 255, 0);
+    border-top: 10px solid rgb(255, 255, 255);
+    transform: rotate(315deg);
+    top: -4px;
+}
+
+.menu {
+    position: relative;
+    background-color: white;
+    box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.464);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    border-radius: 5px;
+    transition: 0.5s;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+.menuExit {
+    display: flex;
+}
+
+@keyframes abrirMenu {
+    0% {
+        display: flex;
+        overflow: hidden;
+        width: 0%;
+        left: -100%;
+    }
+
+    100% {
+        overflow: auto;
+        width: 90%;
+        left: 0%;
+    }
+}
+
+@keyframes fecharMenu {
+    0% {
+        overflow: auto;
+        width: 90%;
+        left: 0;
+    }
+
+    100% {
+        overflow: hidden;
+        width: 0%;
+        left: 100%;
+    }
+}
+
+.menu>ul {
+    list-style: none;
+    width: 100%;
+}
+
+.menu>ul>li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+.menu>ul>li>a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+
+}
+
+.menu>ul>li>a:hover {
+    background-color: #3505F9;
+    color: white;
+}
+
+.menu>ul>li>a>ion-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Box do input de pesquisa */
+
+header > div#box-search {
+    width: 90%;
+    height: 31px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.337);
+
+}
+
+header > div#box-search > input {
+    padding: 7px;
+    border-radius: 3px 0px 0px 3px;
+    border: 1px solid white;
+    width: 100%;
+    height: 100%;
+}
+
+header > div#box-search > .btn-search {
+    height: 100%;
+    width: 27px;
+    border-radius: 0px 3px 3px 0px;
+    background-color: #3505F9;
+    color: white;
+    font-weight: bold;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

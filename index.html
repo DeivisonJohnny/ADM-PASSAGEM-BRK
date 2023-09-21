@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- link font google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+    
+    <script src="js/login.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+        <div>
+
+            <img src="img/brk-logo.png" alt="">
+        </div>
+
+    </header>
+
+    <main>
+        <section id="login">
+            <h1>Olá Leiturista, contabilize suas passagens</h1>
+
+            <form action="">
+                <div>
+
+                    <label for="usuario">
+                        <p>*</p>Usuario
+                    </label>
+                    <input class="inputs" type="text" name="usuario" id="usuario" placeholder="Usuario">
+                    <p class="requiredP">A usuario deve ter ao menos 3 caracteres</p>
+
+                </div>
+                <div>
+                    <label for="password">
+                        <p>*</p>Senha
+                    </label>
+                    <input class="inputs" type="password" name="password" id="password" placeholder="Senha">
+                    <p class="requiredP">A senha deve ter ao menos 8 caracteres</p>
+
+                </div>
+                <div>
+                    <input type="submit" name="submit" id="submit" value="Entrar">
+                </div>
+
+                <div id="cadastrar">
+                    <a href="register.html">Cadastre-se</a>
+                    <p>By developer Deivison Johnny</p>
+                </div>
+            </form>
+        </section>
+    </main>
+
+</body>
+
+</html>
