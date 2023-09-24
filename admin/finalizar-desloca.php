@@ -1,3 +1,6 @@
+<?php 
+    include_once('../auth/index.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -51,15 +54,29 @@
                 </li>
 
                 <li>
-                    <a href="../admin/register-passagem.html">
-                        <p>Registrar deslocamento</p>
+                    <a href="../home/index.php">
+                        <p>Pagina Inicial</p>
+                        <ion-icon name="home-outline"></ion-icon>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../admin/register-passagem.php">
+                        <p>Registrar Passagem</p>
+                        <ion-icon name="reader-outline"></ion-icon>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../admin/finalizar-desloca.php">
+                        <p>Finalizar deslocamento</p>
                         <ion-icon name="newspaper-outline"></ion-icon>
                     </a>
                 </li>
                 <li>
-                    <a href="../admin/orcamento.html">
-                        <p>Orçamento mensal</p>
-                        <ion-icon name="cash-outline"></ion-icon>
+                    <a href="../admin/orcamento.php">
+                        <p>Orçamento</p>
+                        <ion-icon name="calculator-outline"></ion-icon>
                     </a>
                 </li>
                 <li>
@@ -68,15 +85,8 @@
                         <ion-icon name="exit-outline"></ion-icon>
                     </a>
                 </li>
-
-            </ul>
         </menu>
-        <div id="box-search">
-            <input type="search" name="search" id="search" placeholder="Pesquisar">
-            <button type="submit" class="btn-search"><ion-icon name="search-outline"></ion-icon></button>
-        </div>
     </header>
-
     <main>
         <div class="box-acao-final">
             <div id="box-form-visual">
@@ -171,8 +181,8 @@
                         <li>
                             <p>Coordenadas:</p>
                             <p class="dado-coord">
-                                <p class="lat">-9.389206,</p>
-                                <p class="long">  -35.498140</p>
+                            <p class="lat">-9.389206,</p>
+                            <p class="long"> -35.498140</p>
                             </p>
                         </li>
                     </ul>
@@ -227,8 +237,8 @@
                         <li>
                             <p>Coordenadas:</p>
                             <p class="dado-coord">
-                                <p class="lat">-9.400409915647268,</p>
-                                <p class="long">  -35.49715141097382</p>
+                            <p class="lat">-9.400409915647268,</p>
+                            <p class="long"> -35.49715141097382</p>
                             </p>
                         </li>
                     </ul>
@@ -285,8 +295,8 @@
                         </li>
                         <li>
                             <p class="dado-coord">
-                                <p class="lat">-9.411001,</p>
-                                <p class="long">  -35.497286</p>
+                            <p class="lat">-9.411001,</p>
+                            <p class="long"> -35.497286</p>
                             </p>
                         </li>
                     </ul>
@@ -344,8 +354,8 @@
                         <li>
                             <p>Coordenadas:</p>
                             <p class="dado-coord">
-                                <p class="lat">-9.368385,</p>
-                                <p class="long">  -35.485592</p>
+                            <p class="lat">-9.368385,</p>
+                            <p class="long"> -35.485592</p>
                             </p>
                         </li>
                     </ul>

@@ -1,3 +1,7 @@
+<?php 
+    include_once('../auth/index.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -52,17 +56,31 @@
                             <ion-icon name="cog-outline"></ion-icon>
                         </a>
                     </li>
-
+    
                     <li>
-                        <a href="">
+                        <a href="../home/index.php">
+                            <p>Pagina Inicial</p>
+                            <ion-icon name="home-outline"></ion-icon>
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="../admin/register-passagem.php">
+                            <p>Registrar Passagem</p>
+                            <ion-icon name="reader-outline"></ion-icon>
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="../admin/finalizar-desloca.php">
                             <p>Finalizar deslocamento</p>
                             <ion-icon name="newspaper-outline"></ion-icon>
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            <p>Orçamento mensal</p>
-                            <ion-icon name="cash-outline"></ion-icon>
+                        <a href="../admin/orcamento.php">
+                            <p>Orçamento</p>
+                            <ion-icon name="calculator-outline"></ion-icon>
                         </a>
                     </li>
                     <li>
@@ -71,8 +89,6 @@
                             <ion-icon name="exit-outline"></ion-icon>
                         </a>
                     </li>
-
-                </ul>
             </menu>
         </header>
 

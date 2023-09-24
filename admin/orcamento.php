@@ -1,3 +1,7 @@
+<?php 
+    include_once('../auth/index.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -53,23 +57,29 @@
                 </li>
 
                 <li>
-                    <a href="">
+                    <a href="../home/index.php">
                         <p>Pagina Inicial</p>
                         <ion-icon name="home-outline"></ion-icon>
                     </a>
                 </li>
 
                 <li>
-                    <a href="">
+                    <a href="../admin/register-passagem.php">
                         <p>Registrar Passagem</p>
                         <ion-icon name="reader-outline"></ion-icon>
                     </a>
                 </li>
 
                 <li>
-                    <a href="">
+                    <a href="../admin/finalizar-desloca.php">
                         <p>Finalizar deslocamento</p>
                         <ion-icon name="newspaper-outline"></ion-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="../admin/orcamento.php">
+                        <p>Orçamento</p>
+                        <ion-icon name="calculator-outline"></ion-icon>
                     </a>
                 </li>
                 <li>
@@ -78,13 +88,7 @@
                         <ion-icon name="exit-outline"></ion-icon>
                     </a>
                 </li>
-
-            </ul>
         </menu>
-        <div id="box-search" style="display: none;">
-            <input type="search" name="search" id="search" placeholder="Pesquisar">
-            <button type="submit" class="btn-search"><ion-icon name="search-outline"></ion-icon></button>
-        </div>
     </header>
     <main>
         <div class="box-deposito exitDepositar">

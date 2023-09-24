@@ -1,3 +1,7 @@
+<?php 
+    include_once('../auth/index.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -70,21 +74,21 @@
 
     <main>
         <section>
-            <a href="../admin/register-passagem.html" id="addPassagem">
+            <a href="../admin/register-passagem.php" id="addPassagem">
                 <div>
                     <p>Registrar passagem</p>
                 </div>
             </a>
         </section>
         <section>
-            <a href="../admin/finalizar-desloca.html" id="finalRegister">
+            <a href="../admin/finalizar-desloca.php" id="finalRegister">
                 <div>
                     <p>Finalizar registro de passagens</p>
                 </div>
             </a>
         </section>
         <section>
-            <a href="../admin/orcamento.html" id="viewPassagem">
+            <a href="../admin/orcamento.php" id="viewPassagem">
                 <div>
                     <p>Orçamento mensal</p>
                 </div>
