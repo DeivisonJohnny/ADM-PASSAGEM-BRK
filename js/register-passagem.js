@@ -31,6 +31,8 @@ window.onload = function () {
             zoom: 16,
             center: position,
             mapId: "DEMO_MAP_ID",
+            mapTypeId: 'satellite',
+            // mapTypeId: 'satellite'
         });
 
         const marker = new Marker({
@@ -47,6 +49,9 @@ window.onload = function () {
                 var lat = position.coords.latitude
                 var long = position.coords.longitude
                 document.querySelector('#local').value = `${lat}  ` + `${long}`
+
+                document.querySelector('#lat').value = `${lat}` 
+                document.querySelector('#lng').value = `${long}`
 
                 initMap(lat, long)
             }, function (error) {

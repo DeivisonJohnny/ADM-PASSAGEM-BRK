@@ -71,7 +71,9 @@ window.onload = function () {
                 map = new Map(document.querySelectorAll('.div-map')[ind], {
                     zoom: 14,
                     center: position,
-                    mapId: "DEMO_MAP_ID"
+                    mapId: "DEMO_MAP_ID",
+                    mapTypeId: 'satellite',
+                    
                 })
 
                 marker = new Marker( {
@@ -125,7 +127,7 @@ window.onload = function () {
     acaoVisual.forEach((btn, ind) => {
         btn.addEventListener('click', () => {
             if (btn.classList[1] == 'finalizar') {
-                openAcao()
+                openAcao(ind)
             } 
             else {
                 if(btn.classList[1] == 'visualizar') {
@@ -142,7 +144,7 @@ window.onload = function () {
             if (btn.classList[1] == 'visualizar') {
             openVisualizar()
         } else {
-            openAcao()
+            openAcao(ind)
         }
         })
         
@@ -182,6 +184,7 @@ window.onload = function () {
                 zoom: 16,
                 center: position,
                 mapId: "DEMO_MAP_ID",
+                mapTypeId: 'satellite',
             })
 
             marker = new Marker({
@@ -211,9 +214,14 @@ window.onload = function () {
     }
 
 
-    function openAcao() {
+    function openAcao(ind) {
 
         if (boxFinal.classList[1] == 'box-acao-final-exit' || boxFinal.className == 'box-acao-final') {
+            // Adicionar o cdc no valor para encaminha para o banco
+            const cdcF = document.querySelector('#cdcFinal')
+            const dadoCdcFinal = document.querySelectorAll('.dado-cdc')
+            cdcF.value = dadoCdcFinal[ind].textContent
+
             boxFinal.classList.add('box-acao-final-open')
             boxFinal.classList.remove('box-acao-final-exit')
 
@@ -239,6 +247,13 @@ window.onload = function () {
                 let long = pos.coords.longitude
                 document.querySelector('#coord').value = lat.toString() + long.toString()
                 initMap(lat, long)
+
+                console.log(lat, long)
+                console.log(document.querySelector('#latFinal'))
+                console.log(document.querySelector('#longFinal'))
+
+                document.querySelector('#latFinal').value = lat.toString()
+                document.querySelector('#longFinal').value = long.toString()
                 
             })
 
@@ -259,7 +274,8 @@ window.onload = function () {
         map = new Map(document.querySelector('#map'), {
             zoom: 16,
             center: position,
-            mapId: "DEMO_MAP_ID"
+            mapId: "DEMO_MAP_ID",
+            mapTypeId: 'satellite'
         })
 
         marker = new Marker({

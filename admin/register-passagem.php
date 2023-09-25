@@ -1,5 +1,15 @@
 <?php 
     include_once('../auth/index.php');
+    include_once('../connection/connection.php');
+
+    $usuario = $_SESSION['usuario'];
+    $token = $_SESSION['token'];
+
+
+    $sqlPreencher = $conn -> query("SELECT nome, cidade from dados_login WHERE usuario = '$usuario' and token = '$token'");
+
+    $dados = $sqlPreencher -> fetch_assoc();
+
 ?>
 
 <!DOCTYPE html>
@@ -95,15 +105,15 @@
         <main>
             <section>
                 <h2>Adicionar deslocamento</h2>
-                <form action="#" method="get">
+                <form action="index.php?acao=registrar" method="post">
                     <div>
                         <label for="leiturista">Nome do leiturista</label>
-                        <input type="text" class="input" name="leiturista" id="leiturista" placeholder="Ex: Deivison Johnny">
+                        <input type="text" class="input" name="leiturista" id="leiturista" placeholder="Ex: Deivison Johnny" value="<?php echo $dados['nome'];?>">
                         <p class="required">* O campo acima deve ter ao menos 3 caracteres</p>
                     </div>
                     <div>
                         <label for="cidade">Cidade de atuação</label>
-                        <input type="text" class="input" name="cidade" id="cidade" placeholder="Barra de Santo Antônio">
+                        <input type="text" class="input" name="cidade" id="cidade" placeholder="Barra de Santo Antônio" value="<?php echo $dados['cidade']?>">
                         <p class="required">* O campo acima deve ter ao menos 3 caracteres</p>
                     </div>
                     <div>
@@ -117,14 +127,14 @@
                         <p class="required">* O campo acima deve ter ao menos 3 caracteres</p>
                     </div>
                     <div id="box-radio">
-                        <p>Este deslocamento está fora do previsto?</p>
+                        <p>Este deslocamento está no orcamento previsto?</p>
                         <span>
                             <label for="sim">Sim</label>
-                            <input type="radio"  name="previsto" id="sim" value="Sim">
+                            <input type="radio"  name="previsto" id="sim" value="SIM" checked>
                         </span>
                         <span>
                             <label for="nao" >Não</label >
-                            <input type="radio"  name="previsto" id="nao" value="Nao" checked>
+                            <input type="radio"  name="previsto" id="nao" value="NÃO" >
                         </span>
                     </div>
                     <div>
@@ -134,6 +144,8 @@
                             <span>
                                 <span id="cobrir"></span>
                                 <input type="text" class="input" name="local" id="local" placeholder="Cordernadas da localização">
+                                <input type="hidden" name="lat" id="lat">
+                                <input type="hidden" name="lng" id="lng">
                             </span>
 
                         </div>
@@ -156,7 +168,9 @@
 
     </body>
 
-    <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd5XbOjyBOfY73XFQZs9qOLWdg7lgX8kA&callback=initMap">
+    <script async>
+    (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
+        ({ key: "AIzaSyCd5XbOjyBOfY73XFQZs9qOLWdg7lgX8kA", v: "beta" });
 </script>
+
 </html>

@@ -88,13 +88,103 @@
         </menu>
     </header>
     <main>
+        <?php 
+            // listagem de dados
+
+            include_once('../connection/connection.php');
+            
+            if (isset($_SESSION['usuario'])) {
+                $user = $_SESSION['usuario'];
+
+
+                    $sqlDados = $conn -> query("SELECT * FROM dados_deslocamento WHERE leiturista = '$user'");
+                    
+                    if ($sqlDados -> num_rows > 0) {
+                        while($row = $sqlDados -> fetch_assoc()) {
+                            if($row['situacao'] == 'Concluido') {
+                                $classElement = 'visualizar';
+                                $classSituacao = 'sit-concluida';
+                                $text = 'Visualizar';
+                            } else {
+                                $classElement = 'finalizar';
+                                $classSituacao = 'sit-incomp';
+                                $text = 'Finalizar';
+
+                            }
+
+    
+                        echo "<section class='box-cdc'>";
+                            echo "<span>";
+    
+                            echo "<div class='inf-essenc'>";
+
+                                echo "<p>CDC</p>";
+                                    echo "<p class='dado-cdc'>".$row['cdc']."</p>";
+                                        echo "<p>Situação <strong class='$classSituacao'>".$row['situacao']."</strong></p>";
+                                    echo "<p>Ação <button class='acao-final $classElement'>$text</button></p>";
+                                    echo "<ion-icon name='chevron-down-outline' class='icon-detalis'></ion-icon>";
+                                echo "</div>"; //Fechamento do inf-essenc
+                                    
+                                    echo "<div class='details'>";
+                                        echo "<ul>";
+                                            echo "<li>";
+                                                echo "<p>Leiturista</p>";
+                                                echo "<p class='dado-name'>".$row['nome']."</p>";
+                                            echo "</li>";
+                                            echo "<li>";
+                                                echo "<p>Cidade: </p>";
+                                                echo "<p class='dado-city'>".$row['cidade']."</p>";
+                                            echo "</li>";
+                                            echo "<li>";
+                                                echo "<p>Data:</p>";
+                                                echo "<p class='dado-date'>".$row['data_deslocamento']."</p>";
+                                            echo "</li>";
+                                            echo "<li>";
+                                                echo "<p>Deslocamento estava previsto:</p>";
+                                                echo "<p class='dado-previsto'>".$row['previsto']."</p>";
+                                            echo "</li>";
+                                            echo "<li>";
+                                                echo "<p class='dado-coord' >";
+                        
+                                                    echo " <p>Coordenadas:</p>";
+                                                    echo "<p class='lat'>".$row['latitude'].",</p>";
+                                                    echo "<p class='long'>".$row['longitude']."</p>";
+                                                echo "<p>";
+                                            echo "</li>";
+                                            echo "</ul>"; //Fechamento UL
+    
+                                        echo "<div class='div-map'> </div>";
+                            
+                                        echo "<div class='box-obs'>";
+                                            echo "<div class='box-acao-obs'>";
+                                                echo "<p>Observação:</p>";
+                                                echo "<button class='openObs'> Detalhes";
+                                                    echo "<ion-icon name='chevron-down-outline'></ion-icon>";
+                                                echo "</button>";
+                                                
+                                                
+                                                echo "</div>"; //fechamento box acao obs
+                                                echo "<div class='obs-contentExit'>";
+                                                echo "<p class='dado-obs'>".$row['observacao']."</p>";
+                                                echo "</div>";//Fechamento obs content
+                                        echo "</div>"; //fechamento box obs
+                                        echo "</div>"; //fechamento details
+                                    echo "</span>";
+                        echo "</section>";
+                        }                    
+                    }
+                }      
+        ?>
         <div class="box-acao-final">
             <div id="box-form-visual">
                 <ion-icon class="icon-close-visual" name="close-outline" style="cursor: pointer;"></ion-icon>
                 <h2>Pegar a localização atual</h2>
-                <form action="">
+                <form action="index.php?acao=finalizar" method="post">
                     <label for="coord">Coordenadas</label>
-                    <input type="text" name="coord" id="coord" value="" placeholder="Ex -9.0000000 -35.238299">
+                    <input type="text" name="coord" id="coord" placeholder="Ex -9.0000000 -35.238299">
+                    <input type="hidden" id="cdcFinal" name="cdcF">
+                    <input type="hidden" id="latFinal" name="latitudeF" >
+                    <input type="hidden" id="longFinal" name="longitudeF" >
                     <input type="submit" value="Finalizar registro">
                 </form>
                 <button id="btnObterLocal">
