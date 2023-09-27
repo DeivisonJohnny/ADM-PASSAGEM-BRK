@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd5XbOjyBOfY73XFQZs9qOLWdg7lgX8kA&callback=initMap">
-</script>
-    <script src="maps.js" defer></script>
-    <title>Document</title>
-    <style>
-        #map {
-            height: 500px;
-            width: 500px;
-            background-color: #ddd;
-        }
-    </style>
+    <title>Tracer Rota com Google Maps</title>
+    <!-- Inclua a biblioteca do Google Maps com sua chave de API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd5XbOjyBOfY73XFQZs9qOLWdg7lgX8kA&libraries=places"></script>
+
+    <script src="maps.js" defer async></script>
 </head>
 <body>
-    <p></p>
-    <div id="map">
+    <!-- Crie um elemento onde o mapa será exibido -->
+    <div id="map" style="height: 400px;"></div>
 
-    </div>
+    <!-- Crie botões para iniciar a rota -->
+    <button id="btnPegarLocal">Obter Minha Localização</button>
+    <button id="btnTraçarRota">Traçar Rota</button>
+
+    <script>
+        // Seu código JavaScript será colocado aqui
+    </script>
 </body>
 </html>

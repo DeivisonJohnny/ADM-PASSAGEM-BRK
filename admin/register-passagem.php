@@ -94,7 +94,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" style="border-radius: 0px 0px 5px 5px;">
+                        <a href="index.php?acao=deslogar" style="border-radius: 0px 0px 5px 5px;">
                             <p>Logout</p>
                             <ion-icon name="exit-outline"></ion-icon>
                         </a>

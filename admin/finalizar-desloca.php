@@ -80,7 +80,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" style="border-radius: 0px 0px 5px 5px;">
+                    <a href="index.php?acao=deslogar" style="border-radius: 0px 0px 5px 5px;">
                         <p>Logout</p>
                         <ion-icon name="exit-outline"></ion-icon>
                     </a>
@@ -240,7 +240,7 @@
             </div>
         </div>
 
-        <section class="box-cdc">
+        <!-- <section class="box-cdc">
             <span>
                 <div class="inf-essenc">
                     <p>CDC</p>
@@ -468,7 +468,7 @@
                 </div>
 
             </span>
-        </section>
+        </section> -->
     </main>
 
 </body>
