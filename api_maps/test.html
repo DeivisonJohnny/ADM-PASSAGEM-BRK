@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa com Rota</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd5XbOjyBOfY73XFQZs9qOLWdg7lgX8kA&libraries=places&callback=initMap"></script>
+    <script>
+        // Função de inicialização do mapa
+        function initMap() {
+            // Coordenadas de origem e destino
+            var origem = new google.maps.LatLng(-23.5505, -46.6333); // São Paulo, Brasil
+            var destino = new google.maps.LatLng(-23.682160, -46.875491); // Guarulhos, Brasil
+
+            // Opções do mapa
+            var options = {
+                center: origem,
+                zoom: 10
+            };
+
+            // Cria o mapa
+            var map = new google.maps.Map(document.getElementById('map'), options);
+
+            // Cria um objeto de serviço de direções
+            var directionsService = new google.maps.DirectionsService();
+            var directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
+
+            // Configura a solicitação de direção
+            var request = {
+                origin: origem,
+                destination: destino,
+                travelMode: google.maps.TravelMode.DRIVING // Você pode usar outros modos como 'WALKING' ou 'BICYCLING'
+            };
+
+            // Calcula a rota
+            directionsService.route(request, function(response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsRenderer.setDirections(response);
+                } else {
+                    window.alert('Não foi possível traçar a rota: ' + status);
+                }
+            });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <div id="map" style="height: 400px;"></div>
+</body>
+</html>

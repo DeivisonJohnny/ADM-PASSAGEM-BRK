@@ -54,7 +54,7 @@
             <menu class="menu">
                 <ul>
                     <li>
-                        <a href="" style="border-radius: 5px 5px 0px 0px;">
+                        <a href="usuario.html" style="border-radius: 5px 5px 0px 0px;">
                             <div id="triangulo"></div>
                             <p>Usuario</p>
                             <ion-icon name="person-sharp"></ion-icon>

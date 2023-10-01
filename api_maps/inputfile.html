@@ -1,0 +1,29 @@
+<div class="custom-file-upload">
+    <label for="file-upload" class="custom-file-label">Escolher arquivo</label>
+    <input type="file" id="file-upload" class="input-file" />
+</div>
+
+<style>
+    .custom-file-upload {
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+    }
+
+    .custom-file-label {
+        cursor: pointer;
+    }
+
+    .input-file {
+        display: none;
+        /* Oculta o input de arquivo padrão */
+    }
+</style>
+
+<script>
+    document.getElementById("file-upload").addEventListener("change", function () {
+        var fileName = this.value.split("\\").pop();
+        document.querySelector(".custom-file-label").textContent = fileName;
+    });
+</script>

@@ -1,5 +1,12 @@
 <?php 
-    include_once('../auth/index.php');
+    session_start();
+    
+    if (empty($_SESSION['usuario']) OR empty($_SESSION['token'])) {
+        header("Location: ../admin/index.php?acao=deslogar");
+    } else {
+        include_once('../auth/index.php');
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +49,7 @@
         <menu class="menu">
             <ul>
                 <li>
-                    <a href="" style="border-radius: 5px 5px 0px 0px;">
+                    <a href="../admin/usuario.php" style="border-radius: 5px 5px 0px 0px;">
                         <div id="triangulo"></div>
 
                         <p>Usuario</p>

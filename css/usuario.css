@@ -1,0 +1,471 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #DDD;
+    min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3505F9;
+    border-radius: 5px;
+}
+
+.box-mudar-senha {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.259);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    padding: 15px 10px;
+    text-wrap: nowrap;
+    width: 90%;
+    height: 100%;
+    transition: 400ms;
+    animation: openAltSenha 600ms ease-out;
+}
+
+.box-mudar-senha>#closeAltSenha {
+    position: absolute;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    transition: 400ms;
+    border-radius: 1.5px;
+}
+
+#closeAltSenha:hover {
+    background-color: black;
+    color: white;
+}
+
+@keyframes closeAltSenha {
+    0% {
+        width: 90%;
+        padding: 15px 10px;
+
+    }
+
+    45% {
+        width: 0%;
+    }
+
+    50% {
+        width: 0%;
+        height: 256.4px;
+    }
+
+    100% {
+        width: 0%;
+        height: 0px;
+        display: none;
+        padding: 0px;
+
+    }
+}
+
+
+@keyframes openAltSenha {
+
+    0% {
+        width: 0%;
+        height: 0px;
+        padding: 0;
+        display: flex;
+    }
+
+    50% {
+        width: 0%;
+        height: 256.4px;
+    }
+
+    100% {
+        padding: 15px 10px;
+        width: 90%;
+        display: none;
+    }
+
+}
+
+.altSenha {
+    animation: closeAltSenha 600ms ease-out;
+}
+
+.altClose {
+    display: none;
+}
+
+
+.box-mudar-senha>form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.box-mudar-senha>form>div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2px;
+}
+
+.box-mudar-senha>form>div>label {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.box-mudar-senha>form>div>label::before {
+    content: '* ';
+    color: red;
+    font-weight: bold;
+    padding-left: 2px;
+}
+
+.box-mudar-senha>form>div>input {
+    padding: 5px 5px 5px 7px;
+    border-radius: 5px;
+    border: 1px solid rgb(193, 193, 193);
+    outline: none;
+}
+
+.box-mudar-senha>form>div>input:focus {
+    border: 1px solid #3505F9;
+    box-shadow: 0px 0px 3px 0px #3505F9;
+}
+
+#errorAltSenha {
+    font-size: 13px;
+    border-radius: 3px;
+    background-color: rgb(237, 40, 40);
+    overflow: hidden;
+    padding: 5px;
+    width: content;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.box-mudar-senha>form>div>input[type="submit"] {
+    background-color: #3505F9;
+    color: white;
+    font-weight: bold;
+    transition: 400ms;
+    cursor: pointer;
+}
+
+.box-mudar-senha>form>div>input[type="submit"]:hover {
+    background-color: black;
+}
+
+.box-inserir-perfil {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.275);
+    gap: 20px;
+    width: 90%;
+    padding: 10px;
+    position: relative;
+}
+
+.btnClosePerfil {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transition: 0.4s;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.btnClosePerfil:hover {
+    background-color: black;
+    color: white;
+}
+
+.addPerfilOpen {
+    animation: openAddPerfil 0.4s ease ;
+}
+
+.addPerfilClose {
+    animation: closeAddPerfil 400ms ease ;
+
+}
+
+.ocultarAddPerfil {
+    display: none;
+}
+
+
+@keyframes openAddPerfil {
+    0% {
+        height: 0px;
+        padding: 0px;
+    }
+    100% {
+        height: 160.8px;
+    }
+}
+
+@keyframes closeAddPerfil {
+    0% {
+        height: 160.8px;
+        padding: 10px;
+    }
+
+    50% {
+        opacity: 100%;
+    }
+
+    100% {
+        padding: 0px;
+        height: 0px;
+        opacity: 0%;
+    }
+}
+
+.box-inserir-perfil > h3 {
+    text-align: center;
+}
+
+.box-inserir-perfil > form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    gap: 3px;
+}
+
+
+.box-inserir-perfil > form  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+#box-input  {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    color: white;
+    height: 100%;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.box-inserir-perfil > form  > div > p {
+    font-size: 12px;
+}
+
+.box-inserir-perfil > form  > div > label {
+    cursor: pointer;
+    background-color: #f9054a;
+    text-align: center;
+    border-radius: 3px;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    padding: 6px 12px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.29);
+    transition: 0.4s;
+}
+
+.box-inserir-perfil > form  > div > label:hover {
+    background-color: black;
+}
+
+.box-inserir-perfil > form  > div > input[type="file"]#anexo {
+    display: none;
+}
+
+.box-inserir-perfil > form  > div > input[type="submit"] {
+    background-color: #3505F9;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    padding: 5px 0px;
+    border-radius: 3px;
+    transition: 400ms;
+    width: 80%;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.box-inserir-perfil > form  > div > input[type="submit"]:hover {
+    background-color: black;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 20px;
+    gap: 10px;
+    transition: 400ms;
+
+}
+
+#box-user {
+    width: 90%;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.268);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#box-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#box-img-perfil {
+    height: min-content;
+    width: min-content;
+    border: 4px solid rgb(0, 128, 255);
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.234);
+    border-radius: 50%;
+    height: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+#box-img-perfil>img {
+    height: 70px;
+    width: 70px;
+    background-image: url('../img/orcamento.png');
+    background-size: cover;
+    border-radius: 50%;
+}
+
+#box-img-perfil>#iconPerfil {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: rgb(255, 0, 98);
+    font-size: 15px;
+    color: white;
+    font-weight: bolder;
+    border-radius: 50%;
+}
+
+main>#dados-cadastrados {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 90%;
+    height: 250px;
+    flex-direction: column;
+    transition: 400ms;
+    scroll-behavior: smooth;
+    gap: 30px;
+}
+
+main>#dados-cadastrados > h2 {
+    font-size: 16px;
+}
+
+main>#dados-cadastrados>div {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+main>#dados-cadastrados>div>span {
+    display: flex;
+    flex-basis: 50;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+main>#dados-cadastrados>div>span>h3 {
+    font-size: 16px;
+}
+
+main>#dados-cadastrados>div>span>p {
+    font-size: 14px;
+}
+
+span>#box-senha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+#icon-senha {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#eye {
+    background-color: rgb(193, 193, 193);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.316);
+    padding: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: black;
+    transition: 400ms;
+    font-weight: bold;
+}
+
+#eye:hover {
+    background-color: rgb(81, 81, 81);
+    color: white;
+}
+
+#pencil {
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    padding: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#pencil:hover {
+    background-color: black;
+}

@@ -68,29 +68,40 @@ window.onload = function () {
         const numero = parseFloat(valor) / 100; // Divida por 100 para lidar com centavos
         return numero.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     }
+
+
     // Informações do valor por cada deslocamento
 
+        // Valor depositado
     let deposito = document.querySelector('#deposito').textContent.replace(/[^0-9,.]/g, '').replace(',', '.');
+
+        // Deslocamento do mês
     let deslocamentoM = document.querySelector('#deslocamentoM').textContent
 
+        // Calculo do saldo
     var saldoAtual = parseFloat(deposito) - (parseFloat(deslocamentoM) * 7)
 
+        // Formatar texto para estilo da moeda REAL
     saldoAtual = saldoAtual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
 
+        // Insere o valor que ja foi gasto - CALCULO
     document.querySelector('#valor-gasto').textContent = (deslocamentoM * 7).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
 
+        // Pega o valor da fatura atual sem catacteres de letras
     let valorTarifa = document.querySelector('#valor-tarifa').textContent.replace(/\D/g, '');
+
 
     let valorT = parseFloat(valorTarifa)
     let saldoT = parseFloat(saldoAtual.replace(/\D/g, ''))
 
     document.querySelector('#saldoAtual').innerHTML = saldoAtual
+        // Quantidades de deslocamento possiveis
     document.querySelector('#deslocamento_possiveis').innerHTML = saldoT / valorT
 
     let finalizados = document.querySelector('#finalizados').textContent
 
     finalizados = parseInt(finalizados)
-
+        // Numeros de deslocamentos que não foram finalizados
     document.querySelector('#incompletos').innerHTML = parseInt(deslocamentoM) - finalizados
 
 
