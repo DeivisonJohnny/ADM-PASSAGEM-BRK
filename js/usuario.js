@@ -37,7 +37,7 @@ window.onload = function () {
     let tamSenha = document.querySelector('#senha').textContent.length
 
 
-    
+
     // cria a string que vai mascarar
     var ocultar = ''
     for (let i = 0; i < tamSenha; i++) {
@@ -71,50 +71,50 @@ window.onload = function () {
 
         // Pega a extenxão do arquivo anexado
         testeStr = testeStr[1].toLowerCase()
-        
+
 
         verificarExtensao(testeStr)
 
         var fileName = anexo.value.split("\\").pop()
         const label = document.querySelector('#labelAnexo')
+        console.log(label.style)
 
         if (fileName != '') {
-            
+
             label.innerHTML = fileName
         } else {
+            label.style.backgroundColor = '#f9054a'
             label.innerHTML = 'Anexar foto'
         }
+
+    }
+
+
+    function verificarExtensao(extensao) {
+        const label = document.querySelector('#labelAnexo')
+        let suportados = document.querySelector('#arquivosSuportados')
 
         if (label.textContent != 'Anexar foto') {
             label.style.backgroundColor = '#3505F9'
         } else {
             label.style.backgroundColor = '#f9054a'
         }
-
-    }
-
-    function verificarExtensao(extensao) {
-        console.log(extensao)
-        let suportados = document.querySelector('#arquivosSuportados')
-        if(extensao != 'jpg' && extensao != 'jpeg' && extensao != 'png') {
-
-            console.log(extensao == 'png')
-
+        if (extensao != 'jpg' && extensao != 'jpeg' && extensao != 'png') {
             suportados.style.color = 'red'
             suportados.style.fontWeight = 'bold'
-            
+            label.style.backgroundColor = '#f9054a'
+
         } else {
             suportados.style.color = 'blue'
-            // suportados.style.fontWeight = 'bold'
         }
     }
 
     // Funcão de abrir box de formulario para o usuario adicionar a foto de perfil 
-        
+
     const boxInserirPerfil = document.querySelector('.box-inserir-perfil')
 
     document.querySelector('#box-img-perfil').addEventListener('click', openBoxAddPerfil)
-    
+
     function openBoxAddPerfil() {
         if (boxInserirPerfil.classList[2] == 'ocultarAddPerfil') {
             boxInserirPerfil.classList.add('addPerfilOpen')
@@ -124,18 +124,52 @@ window.onload = function () {
             closeBoxAddPerfil()
         }
     }
-    
+
     document.querySelector(".btnClosePerfil").addEventListener('click', closeBoxAddPerfil)
 
     function closeBoxAddPerfil() {
+        const label = document.querySelector('#labelAnexo')
+        if (label.textContent != 'Anexar foto') {
+            label.innerHTML = 'Anexar foto'
+            document.querySelector('#anexo').value = ''
+            console.log(document.querySelector('#anexo').value)
+            verificarExtensao()
+        }
         if (boxInserirPerfil.classList.length <= 2) {
             boxInserirPerfil.classList.add('addPerfilClose')
             boxInserirPerfil.classList.remove('addPerfilOpen')
 
             setTimeout(() => {
                 boxInserirPerfil.classList.add('ocultarAddPerfil')
-            },380)
+            }, 380)
         }
     }
+
+    const inputsAlt = document.querySelectorAll('.inputAltSenha')
+    const requiredAlt = document.querySelectorAll('.requiredInput')
+
+    inputsAlt[0].addEventListener('input', () => {
+        if (inputsAlt[0].value.length < 8) {
+            requiredAlt[0].style.display = 'block'
+            inputsAlt[0].style.border = '1px solid red'
+            inputsAlt[0].style.boxShadow = '0px 0px 4px 0px red'
+        } else {
+            requiredAlt[0].style.display = 'none'
+            inputsAlt[0].style.border = '1px solid blue'
+            inputsAlt[0].style.boxShadow = '0px 0px 4px -1px blue'
+        }
+    })
+    inputsAlt[1].addEventListener('input', () => {
+        if (inputsAlt[0].value != inputsAlt[1].value) {
+            requiredAlt[1].style.display = 'block'
+            inputsAlt[1].style.border = '1px solid red'
+            inputsAlt[1].style.boxShadow = '0px 0px 4px 0px red'
+        } else {
+            requiredAlt[1].style.display = 'none'
+            inputsAlt[1].style.border = '1px solid blue'
+            inputsAlt[1].style.boxShadow = '0px 0px 4px -1px blue'
+        }
+    })
+
 
 }

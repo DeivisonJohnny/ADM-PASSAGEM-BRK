@@ -145,6 +145,14 @@ body {
     outline: none;
 }
 
+.requiredInput {
+    font-size: 12px;
+    display: none;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
 .box-mudar-senha>form>div>input:focus {
     border: 1px solid #3505F9;
     box-shadow: 0px 0px 3px 0px #3505F9;

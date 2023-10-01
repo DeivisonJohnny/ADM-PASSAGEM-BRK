@@ -3,9 +3,6 @@
     
     if (empty($_SESSION['usuario']) OR empty($_SESSION['token'])) {
         header("Location: ../admin/index.php?acao=deslogar");
-    } else {
-        include_once('../auth/index.php');
-
     }
 ?>
 

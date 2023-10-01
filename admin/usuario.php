@@ -125,11 +125,13 @@ if(isset($_SESSION['usuario']) AND isset($_SESSION['token'])) {
             </div>
             <div>
                 <label for="novaSenhaP">Nova senha</label>
-                <input type="password" name="novaSenhaP" id="novaSenhaP" placeholder="Nova senha">
+                <input type="password" name="novaSenhaP" id="novaSenhaP" class="inputAltSenha" placeholder="Nova senha">
+                <p class="requiredInput">A senha deve ter ao menos 8 caracteres</p>
             </div>
             <div>
                 <label for="novaSenhaC">Confirme a senha</label>
-                <input type="password" name="novaSenhaC" id="novaSenhaC" placeholder="Nova senha">
+                <input type="password" name="novaSenhaC" id="novaSenhaC" class="inputAltSenha" placeholder="Nova senha">
+                <p class="requiredInput">As senhas não são compativeis</p>
             </div>
             <?php 
                 if (isset($_SESSION['erroAlterarSenha'])) {
